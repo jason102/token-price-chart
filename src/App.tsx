@@ -1,16 +1,32 @@
 import "./App.css";
-import { useGetChartData } from "./useGetChartData";
+import { useGetChartData, Tokens } from "./useGetChartData";
+import Chart from "./Chart";
 
 const DATE_RANGE_IN_DAYS = 7;
 
 const App: React.FC = () => {
-  const { getChartData, isLoading, errorMessage, chartData } =
-    useGetChartData(DATE_RANGE_IN_DAYS);
+  const { isLoading, errorMessage, chartData } = useGetChartData({
+    tokens: [Tokens.Atom, Tokens.Neutron],
+    dateRangeInDays: DATE_RANGE_IN_DAYS,
+  });
+
+  const ChartContainer = () => {
+    if (isLoading) {
+      return <div className="messageContainer">Loading...</div>;
+    }
+
+    if (errorMessage) {
+      return <div className="messageContainer">{errorMessage}</div>;
+    }
+
+    return <Chart chartData={chartData!} />;
+  };
 
   return (
-    <>
-      <h1>Token Price Chart</h1>
-    </>
+    <div className="appContainer">
+      <h3 style={{ textAlign: "center" }}>Token Price Chart</h3>
+      <ChartContainer />
+    </div>
   );
 };
 

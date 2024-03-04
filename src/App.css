@@ -1,6 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.appContainer {
+  display: "flex";
+  flex: 1;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.messageContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 200px;
   text-align: center;
 }
