@@ -4,23 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import App from "./App";
 import * as useGetChartData from "./useGetChartData";
-
-const mockedPriceData = [
-  { token: "Atom", average: 11.689069767441863, min: 10.93, max: 12.83 },
-  { token: "Neutron", average: 1.5732558139534882, min: 1.39, max: 1.91 },
-];
-
-const mockedChartData = [
-  { time: "2/26, 4 PM", Atom: 11.15, Neutron: 1.82 },
-  { time: "2/26, 8 PM", Atom: 11.38, Neutron: 1.91 },
-  { time: "2/27, 12 AM", Atom: 11.12, Neutron: 1.8 },
-  { time: "2/27, 4 AM", Atom: 11.05, Neutron: 1.78 },
-  { time: "2/27, 8 AM", Atom: 11, Neutron: 1.75 },
-  { time: "2/27, 12 PM", Atom: 11.29, Neutron: 1.75 },
-  { time: "2/27, 4 PM", Atom: 11.21, Neutron: 1.75 },
-  { time: "2/27, 8 PM", Atom: 11.14, Neutron: 1.74 },
-  { time: "2/28, 12 AM", Atom: 11.39, Neutron: 1.74 },
-];
+import { mockedChartData, mockedPriceData } from "./mockedData";
 
 const mockedUseGetChartData = {
   errorMessage: "",
